@@ -1,5 +1,4 @@
 local player = game.Players.LocalPlayer
-local character = player.Character
 local Repstore = game:GetService("ReplicatedStorage")
 local Size1 = Vector3.new(1.663, 8.242, 0.293)
 local Position1 = Vector3.new(0, 0, -0.998)
@@ -16,7 +15,7 @@ UIS.InputEnded:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.W then
         local Copy = BlockPart:Clone()
         Copy.Parent = game.Workspace
-        --Copy.Position = character.LowerTorso.Position +Position1
+        Copy.Position = player.Character.LowerTorso.Position +Position1
         local T = TS:Create(Copy, Settings, Tween)
         T:Play()
     end
