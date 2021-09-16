@@ -11,8 +11,15 @@ local Tween = {}
 Tween.Size = Size1
 local Settings = TweenInfo.new(2) 
 
-UIS.InputEnded:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.W then
+--[[UIS.InputEnded:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.W or input.KeyCode == Enum.KeyCode.A or input.KeyCode == Enum.KeyCode.S or input.KeyCode == Enum.KeyCode.D then
+        
+    end
+end)]]--
+
+wait(5)
+player.Character.Humanoid.Running:Connect(function(speed)
+    if speed == 0 then
         local Copy = BlockPart:Clone()
         Copy.Parent = game.Workspace
         Copy.Position = player.Character.LowerTorso.Position +Position1
