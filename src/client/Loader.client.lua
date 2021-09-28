@@ -15,13 +15,15 @@ local Copy = ValuesFolder:Clone()
 Copy.Parent = player
 local Values = player:WaitForChild("Values")
 Instance.new("BlurEffect", cam)
-wait(1)
+
+repeat wait(1) until game.IsLoaded
 game.Workspace.Baseplate.Parent = game:GetService("ServerStorage")
 cam.CameraType = Enum.CameraType.Scriptable
 cam.CFrame = game.Workspace.CamPart_Preview.CFrame
 local Tween = TweenService:Create(cam, TweenSettings, TweenProperties)
 Tween:Play()
 game.SoundService.TitleScreen:Play()
+player.PlayerGui.TitleGui.Frame.Version.Text = "Version: "..Values.Version.Value.." (Place Version: "..game.PlaceVersion..")"
 print("There should be "..#ValuesFolder:GetChildren().." Values registered, Got "..#Values:GetChildren()..".")
 
 if Values.Playing.Value == true then
